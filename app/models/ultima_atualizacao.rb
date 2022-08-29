@@ -1,0 +1,2 @@
+class UltimaAtualizacao < ApplicationRecord
+end

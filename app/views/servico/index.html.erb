@@ -1,0 +1,9 @@
+<h1>Serviços do Portal</h1>
+<br>
+<ul style="list-style-type:none;">
+    <%@servicos = @servicos.sort_by { |sv| sv.api_id}%>
+    <%@servicos.each do |servico|%>
+        <li><a href="<%=servico.id%>"><%="#{servico.api_id} - #{servico.nome} prestado por"%><i><%="#{servico.orgao.nome}"%></i></a></li>
+        <p></p>
+    <%end%>
+</ul>

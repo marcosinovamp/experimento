@@ -1,0 +1,51 @@
+<br>
+<h1>O que você deseja ver?</h1>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <a href="<%=servico_index_path%>">
+                <div class="homecard">
+                    <h6>Informações dos Serviços</h6>
+                    <div class="cardtxt">
+                        <p> <span class="icon"><%=image_tag "lista_servicos.png", alt: "lista de servicos", width: "50%" %></span> Nesta sessão você verá a lista de todos os serviços presentes tanto no Portal quanto na API e poderá ver características individuais de cada serviço clicando neles.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-4">
+            <a href="<%=servico_dados_path%>">
+                <div class="homecard">
+                    <h6>Estatísticas dos Serviços</h6>
+                    <div class="cardtxt">
+                        <p> <span class="icon"><%=image_tag "estatisticas.png", alt: "lista de servicos", width: "50%"%></span> Aqui você pode ver os "grandes números" da área de serviços do Portal assim como alguns gráficos relativos à visitação e ao uso dele.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-4">
+            <a href="<%=servico_listas_path%>">
+                <div class="homecard">
+                    <h6>Listas 10 mais</h6>
+                    <div class="cardtxt">
+                        <p> <span class="icon"><%=image_tag "dezmais.png", alt: "lista de servicos", width: "50%"%></span> Nesta parte estão as listas comparativas. "Quais são os documentos mais pedidos?" "Quais órgãos tem mais serviços no Portal?" e assim por diante.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <br>
+     <div class="row">
+        <div class="col-sm-4">
+            <a href="<%=servico_problemas_path%>">
+                <div class="homecard">
+                    <h6>Problemas</h6>
+                    <div class="cardtxt">
+                        <p> <span class="icon"><%=image_tag "problemas.png", alt: "lista de servicos", width: "50%" %></span> Veja aqui os problemas de registro de serviços que podem hoje ser encontrados na API, no Portal e na relação entre eles.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

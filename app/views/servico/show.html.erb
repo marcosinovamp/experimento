@@ -1,0 +1,218 @@
+
+<h1><%=@servico.nome%></h1>
+<div class="selos container">
+    <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <%if @avaliacoes_total > 0%>
+                <div class="aprovicon">
+                    <div class="caixa_aprov <%=@class%>">
+                    <div style="text-align:center">
+                        <p class="title_aprov">Aprovação:</p>
+                            <div class="indice_number">
+                                <%="#{@ind_aprov.to_s.gsub(".",",")}%".gsub(",0%","%")%>
+                            </div>
+                    </div>
+                        <div class="numb_and_icon">
+                            <div class="indice_icon">
+                                <%=fa_icon(@apicone)%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="impact_cont">
+                    <div class="caixa_impact <%=@stilo%>">
+                    <div>
+                        <p class="title_aprov">Impacto na nota geral:</p>
+                            <div class="indice_number">
+                                <%="#{@impacto_avaliacoes.to_s.gsub(".",",")}%".gsub(",0%","%")%>
+                            </div>
+                    </div>
+                        <div class="numb_and_icon">
+                            <div class="indice_icon">
+                                <%=fa_icon(@seta_impacto)%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <%end%>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="aprovicon">
+                <div class="caixa_aprov <%=@nota%>">
+                <div style="text-align:center">
+                    <p class="title_aprov">Atualização:</p>
+                        <div class="indice_days">
+                            <%=@txt%>
+                        </div>
+                </div>
+                    <div class="numb_and_icon">
+                        <div class="indice_icon">
+                            <%=fa_icon(@atualicon)%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="aprovicon">
+                <div class="caixa_aprov <%=@clss%>">
+                <div style="text-align:center">
+                    <p class="title_aprov">Digitalização:</p>
+                        <div class="indice_number">
+                            <%="#{@ind_dig.to_s.gsub(".",",")}%".gsub(",0%","%")%>
+                        </div>
+                </div>
+                    <div class="numb_and_icon">
+                        <div class="indice_icon">
+                            <%=fa_icon(@digicon)%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <div class="serv_paineis">
+                <h5>Identificação</h5>
+                <ul class="unbullet">
+                    <li>ID do serviço no Portal: <span class="caract"><%=@servico.api_id%></span></li>
+                    <li>Página do serviço: <span class="caract"><a href='<%=@servico.url%>' target:_blank><%=image_tag "Gov.br_logo.svg", alt: "#{@servico.url}", width: "10%" %></a></span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <div class="serv_paineis">
+                <h5>Definição</h5>
+                <ul class="unbullet">
+                    <li>Órgão Responsável: <span class="caract"><%=@orgao.nome%></span></li>
+                    <li>Serviço Gratuito? <span class="caract"><%=@servico.gratuito == true ? "Sim" : "Não"%></span></li>
+                    <li>Serviço tem botão solicitar? <span class="caract"><%=@servico.botao_solicitar == true ? "Sim" : "Não"%></span></li>
+                    <%if @servico.botao_solicitar == true%>
+                        <li>Link do botão solicitar: <span class="caract"><a href='<%=@servico.link_botaosolicitar%>' target:_blank><span style="word-wrap:break-word"><%=@servico.link_botaosolicitar%></span></a></span></li>
+                    <%end%>
+                    <li>Quantidade de Etapas: <span class="caract"><%=@etapas.length%></span></li>
+                    <li>Duração do Serviço: <span class="caract"><%=@servico.duracao.capitalize.gsub("-"," ")%></span></li>
+                    <%if @servico.sigla == nil%>
+                        <li>Sigla: <span class="caract"><%=@servico.sigla%></span></li>
+                    <%end%>
+                    <%if @nomes_populares.empty?%>
+                        <li>Nomes Populares:</li>
+                            <ul>
+                                <%@nomes_populares.each do |np|%>
+                                    <li><span class="caract"><%=np%></span></li>
+                                <%end%>
+                            </ul>
+                    <%end%>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <div class="serv_paineis">
+                <h5>Classificação</h5>
+                <ul class="unbullet">
+                    <li>Categorização: <span class="caract"><%="#{@servico.categoria_nivel1} > #{@servico.categoria_nivel2} > #{@servico.categoria_nivel3}"%></span></li>
+                    <li>Segmentos atendidos:</li>
+                        <ul>
+                            <%@segmentos.each do |s|%>
+                                <li><span class="caract"><%=s%></span></li>
+                            <%end%>
+                        </ul>
+                    <li>Palavras-chave:</li>
+                        <ul>
+                            <%@palavras_chave.each do |p|%>
+                                <li><span class="caract"><%=p%></span></li>
+                            <%end%>
+                        </ul>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <div class="serv_paineis">
+                <h5>Qualificação</h5>
+                <ul class="unbullet">
+                    <li>Dias desde a última modificação: <span class="caract"><%=@dias_ultmod.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1.').reverse%></span></li>
+                    <li>Informação da página já foi avaliada? <span class="caract"><%=@avaliacoes_total > 0 ? "Sim" : "Não"%></span></li>
+                    <%if @avaliacoes_total > 0%>
+                       <li>Número Total de Avaliações: <span class="caract"><%=@avaliacoes_total.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1.').reverse%></span> (<span class="posit"><%="#{@servico.avaliacoes_positivas.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1.').reverse} avaliações positivas"%></span> x <span class="negat"><%="#{@servico.avaliacoes_negativas.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1.').reverse} avaliações negativas"%></span>)</li>
+                    <%end%>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="box_serv">
+    <h6 class="ulined">Descrição:</h6>
+    <div class="text_serv">
+        <%=@servico.serv_desc_portal%>
+    </div>
+</div>
+<br>
+<div class="box_serv">
+    <h6 class="ulined">Solicitantes:</h6>
+    <div class="text_serv">
+        <%=@servico.serv_solic_portal%>
+    </div>
+</div>
+<br>
+<div class="box_serv">
+    <h6 class="ulined">Contato:</h6>
+    <div class="text_serv">
+        <%=@servico.contato%>
+    </div>
+</div>
+<br>
+<div class="box_serv">
+    <h6 class="ulined">Etapas:</h6>
+    <div class="text_serv">
+        <ol>
+            <%@etapas.each do |e| %>
+                <li class="etapa"><%=e.nome_etapa_portal.gsub("[\"","").gsub("\"]","")%></li>
+                <br>
+                <p><%=e.descricao_etapa_portal.gsub("[\"","").gsub("\"]","").gsub("\\n","\n")%></p>
+                <ul>
+                    <li>Documentos Pedidos:</li>
+                        <ul>
+                            <%Documento.all.select {|d| d.etapa_id==e.id}.each do |doc|%>
+                                <li><%=doc.nome%></li>
+                            <%end%>
+                        </ul>
+                    <li>Taxas que devem ser pagas:</li>
+                        <ul>
+                            <%Taxa.all.select {|t| t.etapa_id==e.id}.each do |tax|%>
+                                <li><%="#{tax.descricao} - #{tax.valor}"%></li>
+                            <%end%>
+                        </ul>
+                    <li>Canais de Prestação</li>
+                        <ul>
+                            <%Canal.all.select {|c| c.etapa_id==e.id}.each do |can|%>
+                                <li><%="#{can.tipo} - #{can.descricao}"%></li>
+                            <%end%>
+                        </ul>
+                </ul>
+                <br>
+                <br>
+            <%end%>
+        </ol>
+    </div>
+</div>
+<div class="box_serv">
+    <%if @servico.servicos_relacionados.nil? ||  @servico.servicos_relacionados.empty?%>
+        <div></div>
+    <%else%>
+        <h6 class="ulined">Serviços Relacionados:</h6>
+        <div class="text_serv">
+            <%@servico.servicos_relacionados.split(",").each do |sr|%>
+                <%@rel = Servico.find_by("api_id":sr)%>
+                <%="#{@rel.api_id} - #{@rel.nome} por #{@rel.orgao.nome}"%>
+            <%end%>
+        </div>
+    <%end%>
+</div>

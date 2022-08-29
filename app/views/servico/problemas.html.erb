@@ -1,0 +1,58 @@
+<h1>Problemas</h1>
+<div id="accordion">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h5 class="prob_title mb-0">
+                <button class="btn prob_title btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    Serviços que estão na API mas não estão no Portal: <%=@problemas.length%> <span class="sym">&#9776</span>
+                </button>
+            </h5>
+        </div>
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                <ul class="list_prob">
+                    <%@problemas.sort_by { |sv| sv.api_id}.each do |p|%>
+                        <li><a href="https://www.servicos.gov.br/api/v1/servicos/<%=p.api_id%>" target="_blank"><%="#{p.api_id} - #{p.nome_api} do órgão #{p.orgao.nome}"%></a>
+                    <%end%>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h5 class="prob_title mb-0">
+                <button class="btn prob_title btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Serviços que estão no Portal mas não na API: <%=@problemas_portal.length%> <span class="sym">&#9776</span>
+                </button>
+            </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+                <ul class="list_prob">
+                    <%@problemas_portal.each do |pp|%>
+                        <li><a href="<%=pp.url%>" target="_blank"><%="#{pp.api_id} - #{pp.nome} -  #{pp.orgao}"%></a>
+                    <%end%>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h5 class="prob_title mb-0">
+                <button class="btn prob_title btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Serviços sem todas as categorias: <%=@semcat.length%> <span class="sym">&#9776</span>
+                </button>
+            </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+                <ul class="list_prob">
+                    <%@semcat.each do |sc|%>
+                        <%vac_cat = (sc.categoria_nivel1.empty? ? 0:1) + (sc.categoria_nivel2.empty? ? 0:1) + (sc.categoria_nivel3.empty? ? 0:1)%>
+                        <li><a href="<%=sc.url%>" target="_blank"><%="#{sc.api_id} - #{sc.nome} -  #{sc.orgao.nome} - Possui #{vac_cat} #{vac_cat == 1 ? "nível de categorização." : "níveis de categorização."}"%></a>
+                    <%end%>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+.homecard{
+    border-radius: 15px;
+    border: 1px solid black;
+    height: 100%;
+    box-shadow: 2px 2px 5px grey;
+    background-color:white;
+    p{
+    color: #283747 !important;
+    }
+    h6{
+        font-size:1.1em;
+        margin-bottom:10px;
+        font-weight: bold;
+    }
+    .icon{
+        padding:1px;
+        font-size: 2.5em;
+        margin-right: 2px;
+    }
+    .cardtxt{
+        padding:5px;
+        text-align: justify;
+        display:flex;
+        align-self:flex-start;
+        margin: 0px 10px;
+    }
+}

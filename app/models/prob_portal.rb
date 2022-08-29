@@ -1,0 +1,2 @@
+class ProbPortal < ApplicationRecord
+end

@@ -1,0 +1,125 @@
+<h1>Estatisticas Gerais dos Serviços</h1>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="greycard">
+                <h6>Quantidade de Serviços:</h6>
+                <p><%=@qtd_servicos.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1.').reverse%></p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="greycard">
+                <h6>Serviços 100% digitais:</h6>
+                <p><%=@serv_total_digital.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1.').reverse%></p>
+                <p class="posit"><%="#{((@serv_total_digital.to_f/@qtd_servicos)*100).round(2).to_s.gsub(".",",")}%"%></p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="greycard">
+                <h6>Serviços com Botão Solicitar:</h6>
+                <p><%=@total_botao_solicitar.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1.').reverse%></p>
+                <p class="posit"><%="#{((@total_botao_solicitar.to_f/@qtd_servicos)*100).round(2).to_s.gsub(".",",")}%"%></p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="greycard">
+                <h6>Média digitalização dos serviços:</h6>
+                <p><%="#{((@tx_digital/@qtd_servicos)*100).round(2)}%"%></p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="greycard">
+                <h6>Média dias desde a última atualização:</h6>
+                <p><%=@total_dias_atualizacao_portal/@qtd_servicos%></p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="greycard">
+                <h6>Serviços não atualizados há um ano ou mais:</h6>
+                <p><%=@não_atualizados_ano_ou_mais.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1.').reverse%></p>
+                <p class="posit"><%="#{((@não_atualizados_ano_ou_mais.to_f/@qtd_servicos)*100).round(2).to_s.gsub(".",",")}%"%></p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="greycard">
+                <h6>Total de Avaliações:</h6>
+                <p><%=@total_avaliacoes_portal.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1.').reverse%></p>
+                <p class="posit">Avaliações positivas: <%=@soma_positivas_portal.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1.').reverse%><p>
+                <p class="negat">Avaliações negativas: <%=@soma_negativas_portal.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1.').reverse%></p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="greycard">
+                <h6>Aprovação geral:</h6>
+                <p><%="#{((@soma_positivas_portal.to_f/@total_avaliacoes_portal)*100).round(2).to_s.gsub(".",",")}%"%></p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="greycard">
+                <h6>Serviços com Avaliações:</h6>
+                <p><%=@servicos_com_avaliacao.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1.').reverse%></p>
+                <p class="posit"><%="#{((@servicos_com_avaliacao.to_f/@qtd_servicos)*100).round(2).to_s.gsub(".",",")}%"%></p>
+            </div>
+        </div>
+         <div class="col-sm-3">
+            <div class="greycard">
+                <h6>Órgãos com serviços no Portal:</h6>
+                <p><%=@orgaos.length%></p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="greycard">
+                <h6>Serviços Gratuitos:</h6>
+                <p><%=@total_gratuitos.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1.').reverse%></p>
+                <p class="posit"><%="#{((@total_gratuitos.to_f/@qtd_servicos)*100).round(2).to_s.gsub(".",",")}%"%></p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="greycard">
+                <h6>Média Etapas por Serviço:</h6>
+                <p><%=(@qtd_etapas.to_f/@qtd_servicos).round(2).to_s.gsub(".",",")%></p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="greycard">
+                <h6>Média Etapas Digitais por Serviço:</h6>
+                <p><%=(@qtd_digitais.to_f/@qtd_servicos).round(2).to_s.gsub(".",",")%></p>
+                <p class="posit"><%="#{(((@qtd_digitais.to_f/@qtd_servicos)/(@qtd_etapas.to_f/@qtd_servicos))*100).round(2).to_s.gsub(".",",")}%"%></p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="greycard">
+                <h6>Média documentos por serviço:</h6>
+                <p><%=(@documentos.length.to_f/@qtd_servicos).round(2).to_s.gsub(".",",")%></p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="greycard">
+                <h6>Média documentos por etapa:</h6>
+                <p><%=(@documentos.length.to_f/@etapas.length).round(2).to_s.gsub(".",",")%></p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="greycard">
+                <h6>Média canais por etapa:</h6>
+                <p><%=(@canais.length.to_f/@etapas.length).round(2).to_s.gsub(".",",")%></p>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<iframe width="100%" height="1000" src="https://datastudio.google.com/embed/reporting/cb74585b-2491-4b86-83c0-fe7b58fe0d86/page/p_kea9em7rnc" frameborder="0" style="border:0" allowfullscreen></iframe>

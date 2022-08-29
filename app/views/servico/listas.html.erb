@@ -1,0 +1,44 @@
+<h1>Listas Comparativas</h1>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="greycard">
+                <h3>Documentos mais pedidos</h3>
+                <ol>
+                    <%@count_docs.first(10).each do |k,elm|%>
+                        <li><%="#{k} - #{elm} requisições"%></li>
+                    <%end%>
+                </ol>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="greycard">
+                <h3>Serviços que pedem mais documentos:</h3>
+                <ol>
+                    <%@sbd.sort_by {|k, v| -v}.first(10).each do |key,e|%>
+                        <li><a href="<%=Servico.find(key).url%>" target="_blank"><%="#{Servico.find(key).nome} - #{e} requisições"%></a></li>
+                    <%end%>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-8">
+            <div class="greycard">
+                <h3>Órgãos com mais serviços:</h3>
+                <ol>
+                    <%@list_org.first(10).each do |o|%>
+                        <li><%="#{o[1]} - #{o[0]} serviços"%></li>
+                    <%end%>
+                </ol>
+            </div>
+        </div>
+        <div class="col-sm-2">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+.nav, .navbar-expand, .navbar-dark, .bg-dark, .navbar-nav{
+    width: 102% !important;
+    margin-left:-10px !important;
+    margin-top: -10px !important;
+    padding: 10px !important;
+    padding-top: 7px !important;
+    padding-bottom: 2px !important;
+    border-radius:3px;
+    display: flex;
+    justify-content: space-around !important;
+}
+.profiler-results, .profiler-left, .profiler-top, .profiler-no-controls, .profiler-result, .profiler-button, .profiler-popup, .profiler-queries {
+    display: none !important;
+}

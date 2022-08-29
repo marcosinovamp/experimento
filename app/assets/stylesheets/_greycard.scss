@@ -1,0 +1,24 @@
+.greycard {
+    background-color:rgb(230, 230, 230);
+    color: #283747;
+    margin:1px;
+    height:100%;
+    padding:10px;
+    border-radius:15px;
+    box-shadow: 2px 2px 5px #EAEDED;
+    p{
+        text-align:center;
+    }
+    ol {
+        margin: 5px 10px;
+        font-size:90%;
+    }
+}
+.posit{
+    font-size: 90%;
+    color:green;
+}
+.negat{
+    font-size: 90%;
+    color:red;
+}

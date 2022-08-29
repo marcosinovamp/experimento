@@ -1,0 +1,115 @@
+.unbullet{
+    list-style-type:none;
+    li{
+        margin: 5px 2px;
+    }
+}
+.box_serv{
+    padding:10px;
+    width:80%;
+    margin:auto;
+}
+.text_serv{
+    background-color:white;
+    border-radius:15px;
+    box-shadow: 2px 1px 5px grey;
+    padding: 10px 20px;
+    text-align:justify;
+}
+.ulined{
+    text-decoration:underline;
+}
+.selos{
+    display:flex;
+    justify-content: flex-end;
+    width:100%;
+    padding: 0 10px;
+    height: 100%;
+    text-align: left;
+}
+.aprovicon{
+    // display:flex;
+    // justify-content:flex-end;
+    font-size: 1.5em;
+    color: white;
+    text-shadow: 0.5px 0.5px black;
+}
+.otimo{
+    background-color: #229954;
+}
+.bom{
+    background-color: #2980B9;
+}
+.medio{
+    background-color: #D4AC0D;
+}
+.ruim{
+    background-color:#EB984E;
+}
+.pessimo{
+    background-color:red;
+}
+.indice_number{
+    margin: auto;
+    padding: 4px;
+}
+.indice_icon{
+    margin:auto;
+    font-size: 150%
+}
+.caixa_aprov{
+    display:flex;
+    justify-content:space-evenly;
+    // flex-wrap:wrap;
+    width:110%;
+    height:85px;
+    border-radius:15px;
+    padding:4px;
+    margin: 1px;
+    box-shadow: 2px 1px 2px #5D6D7E;
+}
+.title_aprov{
+    font-size:0.7em;
+    text-align:center;
+    margin:auto;
+}
+.indice_days{
+    margin: auto;
+    font-size:60%;
+    flex-wrap:wrap;
+    padding: 0 2px;
+}
+.impact_cont{
+    font-size:70% !important;
+    display:flex;
+    justify-content:flex-start;
+    color: white;
+    text-shadow: 0.5px 0.5px black;
+    margin-top: -14px;
+    margin-left: 0px;
+    // text-align:left;
+    // align-self:left;
+}
+.caixa_impact{
+    display:flex;
+    justify-content:space-evenly;
+    // flex-wrap:wrap;
+    text-align:center;
+    width:80%;
+    height:100%;
+    border-radius:0px 15px 15px 15px;
+    padding:3px;
+    //margin: 0px auto;
+    box-shadow: 2px 1px 2px #5D6D7E;
+    border-top: 0.5px solid white;
+}
+.numb_and_icon{
+    display:flex;
+    justify-content: flex-end;
+}
+.serv_paineis{
+    box-shadow:2px 1px 5px #ABB2B9;
+    height: 100%;
+    border-radius:15px;
+    padding:5px;
+}
